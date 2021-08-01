@@ -29,6 +29,10 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/main.scss";
 
+header {
+  margin-bottom: 110px;
+}
+
 header,
 nav,
 ul,

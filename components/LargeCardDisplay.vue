@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 0;
-  margin-top: 50px;
+  margin-top: 150px;
   h2 {
     font-weight: 700;
   }

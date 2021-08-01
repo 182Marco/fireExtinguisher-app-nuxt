@@ -28,7 +28,6 @@ export default {};
   display: flex;
   align-items: center;
   margin: 70px auto;
-  margin-bottom: 150px;
   padding-right: 20px;
   @include media-desk-first(xl-tablet) {
     flex-direction: column;
