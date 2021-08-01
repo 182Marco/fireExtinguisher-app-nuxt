@@ -5,3 +5,9 @@
 
 // font
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap");
+
+.container {
+  @include media-desk-first(tablet) {
+    width: 90vw;
+  }
+}

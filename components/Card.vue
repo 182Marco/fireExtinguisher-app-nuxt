@@ -24,16 +24,34 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/main.scss";
 .card {
-  width: calc(100% / 3 - 50px);
-  margin-right: 50px;
+  @include media-desk-first(xs-desktop) {
+    margin-bottom: 30px;
+    width: calc(100% / 2 - 20px);
+  }
+  @include media-desk-first(s-tablet) {
+    width: 100%;
+  }
+  width: calc(100% / 3 - 20px);
+  margin-right: 20px;
   background-color: $bg;
   border: none;
   /* if there's prop small */
   &.s {
     width: calc(100% / 6 - 12px);
+    @include media-desk-first(xs-desktop) {
+      margin-bottom: 30px;
+      width: calc(100% / 4 - 20px);
+    }
+    @include media-desk-first(s-tablet) {
+      width: calc(100% / 3 - 20px);
+    }
+    @include media-desk-first(l-phone) {
+      width: calc(100% / 2 - 20px);
+    }
     margin-right: 12px;
     background-color: $text;
     border: none;
+    margin-bottom: 20px;
   }
   .img-box {
     width: 100%;

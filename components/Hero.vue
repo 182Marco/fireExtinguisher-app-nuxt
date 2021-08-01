@@ -29,10 +29,19 @@ export default {};
   align-items: center;
   margin: 70px auto;
   margin-bottom: 150px;
+  padding-right: 20px;
+  @include media-desk-first(xl-tablet) {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 100px;
+  }
 }
 .text-box {
   display: flex;
   flex-direction: column;
+  @include media-desk-first(xl-tablet) {
+    margin-bottom: 50px;
+  }
 }
 h1 {
   font-weight: 700;
@@ -43,8 +52,11 @@ p {
 }
 
 img {
-  width: 250px;
-  margin-left: 70px;
+  width: 200px;
+  margin-left: 40px;
+  @include media-desk-first(xl-tablet) {
+    margin: 0 auto;
+  }
 }
 
 button {
