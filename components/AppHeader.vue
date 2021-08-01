@@ -8,9 +8,12 @@
               ><img src="~assets/img/logo.png" alt="" />
             </NuxtLink>
           </li>
-          <li><NuxtLink to="/">Home </NuxtLink></li>
-          <li><NuxtLink to="/About">About </NuxtLink></li>
-          <li><NuxtLink to="/Contact">Contact </NuxtLink></li>
+          <li class="link"><NuxtLink to="/">Home </NuxtLink></li>
+          <li class="link"><NuxtLink to="/About">About </NuxtLink></li>
+          <li class="link"><NuxtLink to="/Contact">Contact </NuxtLink></li>
+          <li class="hamburger">
+            <Hamburger />
+          </li>
         </ul>
       </nav>
     </div>
@@ -39,6 +42,7 @@ img {
 
 .container {
   margin: 0 auto;
+  position: relative;
   nav {
     padding: 25px 0;
     ul {
@@ -49,6 +53,24 @@ img {
       li {
         font-weight: 700;
         margin-right: 30px;
+        &.link {
+          @include media-desk-first(tablet) {
+            display: none;
+          }
+        }
+        &.hamburger {
+          display: none;
+          position: absolute;
+          right: 0;
+          transform: translateY(-50%);
+          top: 50%;
+          @include media-desk-first(tablet) {
+            display: block;
+          }
+          &:hover {
+            animation: none;
+          }
+        }
         &:hover {
           animation: tremble 0.4s;
           cursor: pointer;
