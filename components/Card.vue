@@ -1,11 +1,11 @@
 <template>
   <div class="card" :class="{ s: small }">
-    <div class="img-box" :class="{ s: small }">
+    <NuxtLink :to="`products/${card.id}`" class="img-box" :class="{ s: small }">
       <img
         :src="require(`@/assets/img/${card.img || 'notfound.png'}`)"
         :alt="card.title"
       />
-    </div>
+    </NuxtLink>
     <h4>{{ card.title }}</h4>
     <p>{{ card.description }}</p>
   </div>

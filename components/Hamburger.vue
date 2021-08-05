@@ -1,5 +1,5 @@
 <template>
-  <div @click="open">
+  <div>
     <div class="hamburger">
       <span class="line"></span>
       <span class="line"></span>
