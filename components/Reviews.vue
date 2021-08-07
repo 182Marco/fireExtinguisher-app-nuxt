@@ -1,10 +1,10 @@
 <template>
   <div>
     <h3>Customer reviews</h3>
-    {{ $fetchState }}
+
     <div v-if="!$fetchState.pending">
       <ReviewCard
-        v-for="(reviewer, i) in reviewers.results"
+        v-for="(reviewer, i) in reviewers"
         :key="`review${i}`"
         :review="reviewer"
       />
@@ -26,7 +26,7 @@ export default {
   async fetch() {
     this.reviewers = await fetch(
       `https://randomuser.me/api/?results=${this.resQantity}`
-    ).then(r => r.json());
+    ).then(r => r.json().results);
   }
 };
 </script>
