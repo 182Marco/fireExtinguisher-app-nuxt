@@ -42,6 +42,7 @@
         {{ product.description }}
       </p>
     </div>
+    <Reviews />
   </div>
   <div v-else class="container padding">
     <NotFound />
@@ -54,12 +55,8 @@ export default {
   data() {
     return {};
   },
-  created() {
-    console.log(this.$route.params.id);
-  },
   computed: {
     ...mapGetters(["ProductById"]),
-
     // ----
     product() {
       return this.ProductById(this.$route.params.id);
@@ -70,7 +67,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/var.scss";
-
 // typography
 h1 {
   font-size: 1.75rem;
