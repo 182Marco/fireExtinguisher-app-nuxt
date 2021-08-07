@@ -4,8 +4,8 @@
 
     <div v-if="!$fetchState.pending">
       <ReviewCard
-        v-for="(reviewer, i) in reviewers"
-        :key="`review${i}`"
+        v-for="reviewer in reviewers"
+        :key="`review_${reviewer.login.uud}`"
         :review="reviewer"
       />
     </div>
