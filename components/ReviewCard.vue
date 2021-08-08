@@ -4,8 +4,10 @@
       <img :src="review.picture.large" :alt="review.name" />
     </div>
     <div class="text-container">
-      <h6>{{ review.login.username }}</h6>
-      <p>
+      <p class="author">
+        <em>{{ review.login.username }}</em>
+      </p>
+      <p class="review-text">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
         quam magni beatae possimus debitis.
       </p>
@@ -24,8 +26,7 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/main.scss";
 .review-card {
-  margin-top: 1.5rem;
-  height: 4rem;
+  margin-bottom: 30px;
   display: flex;
   img {
     width: 4rem;
@@ -33,10 +34,18 @@ export default {
     border-radius: 100%;
   }
   .text-container {
-    margin-left: 2rem;
+    padding-left: 15px;
   }
-  p {
+  .review-text {
     color: $text;
+    line-height: 1.1rem;
+  }
+  .author {
+    em {
+      color: $reviewAuthor;
+    }
+    font-weight: 700;
+    margin: 0;
   }
 }
 </style>

@@ -5,6 +5,7 @@
       <div class="info-box">
         <h1>{{ product.title }}</h1>
         <p class="snippet">{{ product.snippet }}</p>
+        <RentModal />
       </div>
     </div>
     <div class="whats-included-box">
@@ -67,12 +68,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/var.scss";
+@import "~/assets/scss/mixins.scss";
 // typography
 h1 {
   font-size: 1.75rem;
   font-weight: 700;
   background-color: $pal-col;
-  color: $bg;
 }
 h6 {
   font-size: 1.15rem;
@@ -95,21 +96,30 @@ button {
 
 .hero-container {
   display: flex;
-  justify-content: space-between;
-  img {
-    border-radius: 5px;
-    width: 59%;
-    height: 25rem;
+  @include media-desk-first(tablet) {
+    flex-direction: column;
   }
+
+  img {
+    width: 50%;
+    height: 35vh;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 30px;
+    @include media-desk-first(tablet) {
+      margin-bottom: 15px;
+    }
+  }
+
   .info-box {
-    width: 39%;
+    flex-grow: 1;
     background-color: $pal-col;
     padding: 1rem;
     border-radius: 0.5rem;
     .snippet {
-      color: $bg;
       background-color: $pal-col;
       margin-top: 1rem;
+      margin: 20px 0;
     }
   }
 }
@@ -128,6 +138,5 @@ button {
 
 .description-container {
   margin-top: 1.5rem;
-  color: $text;
 }
 </style>

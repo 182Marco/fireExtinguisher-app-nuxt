@@ -25,7 +25,13 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    {
+      src: "~/plugins/vue-calendar.js",
+      mode: "client" //need to specify in which side the component is used
+      // mode: 'server' // to do the opposite
+    }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

@@ -33,7 +33,7 @@ export default {
     display: block;
     width: 100%;
     height: 4px;
-    background-color: $bg;
+    background-color: $text;
     border-radius: 5px;
     margin-top: 4px;
     transition: background 0.3s;

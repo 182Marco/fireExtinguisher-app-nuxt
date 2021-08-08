@@ -40,7 +40,6 @@ li,
 a,
 img {
   background-color: $pal-col;
-  color: $bg;
   font-size: 1.3rem;
 }
 
