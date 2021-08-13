@@ -40,4 +40,8 @@ export default {
 .body {
   margin-bottom: 300px;
 }
+
+.container {
+  margin-top: 100px;
+}
 </style>

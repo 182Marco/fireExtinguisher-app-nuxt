@@ -6,7 +6,7 @@
     <p>
       {{ info.description }}
     </p>
-    <div class="card-box">
+    <div class="cards-box">
       <Card
         v-for="card in info.cards"
         :key="`card_${card.id}`"
@@ -28,13 +28,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/var.scss";
+
 .container {
   padding: 0;
-  margin-top: 150px;
+  margin-top: 100px;
   h2 {
     font-weight: 700;
+    color: $title;
   }
-  .card-box {
+  .cards-box {
     display: flex;
     flex-wrap: wrap;
     width: 100%;

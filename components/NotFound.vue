@@ -10,9 +10,13 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/mixins.scss";
 div {
   display: flex;
   justify-content: center;
+  @include media-desk-first(desktop) {
+    flex-direction: column;
+  }
   width: 50rem;
   h1 {
     font-size: 7.5rem;
@@ -20,6 +24,9 @@ div {
   img {
     width: 15rem;
     margin: 0 auto;
+    @include media-desk-first(desktop) {
+      margin: 0;
+    }
   }
 }
 </style>

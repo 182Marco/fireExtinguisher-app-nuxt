@@ -44,6 +44,7 @@ export default {};
 }
 h1 {
   font-weight: 700;
+  color: $title;
 }
 
 p {
@@ -55,6 +56,7 @@ img {
   margin-left: 40px;
   @include media-desk-first(xl-tablet) {
     margin: 0 auto;
+    width: 250px;
   }
 }
 
@@ -68,6 +70,10 @@ button {
   width: 300px;
   border: none;
   transition: color 0.4s;
+  color: white;
+  @include media-desk-first(xl-tablet) {
+    margin: 15px auto;
+  }
 }
 button:hover {
   animation: pulse 1.3s infinite;

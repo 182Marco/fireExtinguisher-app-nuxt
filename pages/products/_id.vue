@@ -1,11 +1,14 @@
 <template>
-  <div v-if="product" class="container">
+  <div v-if="products.find(e => e.id == id)" class="container">
     <div class="hero-container">
-      <img :src="require(`@/assets/img/${product.img}`)" :alt="product.name" />
+      <img
+        :src="require(`@/assets/img/${products.find(e => e.id == id).img}`)"
+        :alt="products.find(e => e.id == id).name"
+      />
       <div class="info-box">
-        <h1>{{ product.title }}</h1>
-        <p class="snippet">{{ product.snippet }}</p>
-        <RentModal />
+        <h1>{{ products.find(e => e.id == id).title }}</h1>
+        <p class="snippet">{{ products.find(e => e.id == id).snippet }}</p>
+        <RentalModal :product="products.find(e => e.id == id)" />
       </div>
     </div>
     <div class="whats-included-box">
@@ -40,7 +43,7 @@
     </div>
     <div class="description-container">
       <p>
-        {{ product.description }}
+        {{ products.find(e => e.id == id).description }}
       </p>
     </div>
     <Reviews />
@@ -51,13 +54,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 export default {
   data() {
-    return {};
+    return { id: this.$route.params.id };
   },
   computed: {
-    ...mapGetters(["ProductById"]),
+    ...mapState(["products"]),
     // ----
     product() {
       return this.ProductById(this.$route.params.id);
@@ -69,15 +72,13 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/scss/var.scss";
 @import "~/assets/scss/mixins.scss";
+
 // typography
 h1 {
   font-size: 1.75rem;
   font-weight: 700;
   background-color: $pal-col;
-}
-h6 {
-  font-size: 1.15rem;
-  font-weight: 400;
+  color: $title;
 }
 
 button {
@@ -86,8 +87,8 @@ button {
   padding: 0.5rem;
   color: white;
   font-weight: 700;
-  padding: 1rem 4rem;
-  border-radius: 100rem;
+  padding: 4px 0;
+  border-radius: 5px;
   background-color: rgb(231, 81, 43);
   color: white;
   font-weight: 700;
@@ -102,6 +103,9 @@ button {
 
   img {
     width: 50%;
+    @include media-desk-first(tablet) {
+      width: 100%;
+    }
     height: 35vh;
     object-fit: cover;
     border-radius: 5px;
@@ -116,6 +120,7 @@ button {
     background-color: $pal-col;
     padding: 1rem;
     border-radius: 0.5rem;
+    box-shadow: 3px 3px 14px 8px rgba(0, 0, 0, 0.3);
     .snippet {
       background-color: $pal-col;
       margin-top: 1rem;

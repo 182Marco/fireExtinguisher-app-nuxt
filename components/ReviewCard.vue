@@ -42,7 +42,7 @@ export default {
   }
   .author {
     em {
-      color: $reviewAuthor;
+      color: $smallTitle;
     }
     font-weight: 700;
     margin: 0;

@@ -9,8 +9,14 @@
             </NuxtLink>
           </li>
           <li class="link"><NuxtLink to="/">Home </NuxtLink></li>
-          <li class="link"><NuxtLink to="/About">About </NuxtLink></li>
-          <li class="link"><NuxtLink to="/Contact">Contact </NuxtLink></li>
+        </ul>
+        <ul>
+          <li class="link cart">
+            <NuxtLink to="/cart">
+              cart
+              <span class="circle-n-items">{{ cartItemsLenght }}</span>
+            </NuxtLink>
+          </li>
           <li class="hamburger">
             <Hamburger />
           </li>
@@ -21,26 +27,30 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  name: "AppHeader"
+  name: "AppHeader",
+  computed: {
+    ...mapGetters(["cartItemsLenght"])
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/css/main.scss";
 
-header {
-  margin-bottom: 110px;
+* {
+  background-color: transparent;
+  font-size: 1.3rem;
 }
 
-header,
-nav,
-ul,
-li,
-a,
-img {
-  background-color: $pal-col;
-  font-size: 1.3rem;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #21232bcc;
 }
 
 .container {
@@ -48,6 +58,8 @@ img {
   position: relative;
   nav {
     padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
     ul {
       display: flex;
       align-items: center;
@@ -56,38 +68,55 @@ img {
       li {
         font-weight: 700;
         margin-right: 30px;
-        &.link {
-          @include media-desk-first(tablet) {
-            display: none;
-          }
-        }
-        &.hamburger {
-          display: none;
-          position: absolute;
-          right: 0;
-          transform: translateY(-50%);
-          top: 50%;
-          @include media-desk-first(tablet) {
-            display: block;
-          }
-          &:hover {
-            animation: none;
-          }
-        }
-        &:hover {
-          animation: tremble 0.4s;
-          cursor: pointer;
-        }
         a {
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          &:hover {
+            color: $title;
+          }
           img {
             width: 40px;
           }
         }
       }
     }
+  }
+}
+
+.cart {
+  position: relative;
+  .circle-n-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 65%;
+    left: 95%;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color: white;
+    background-color: $brand;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+}
+
+// responsive
+.link {
+  @include media-desk-first(s-phone) {
+    display: none;
+  }
+  &:hover {
+    animation: tremble 0.4s;
+  }
+}
+
+.hamburger {
+  display: none;
+  @include media-desk-first(s-phone) {
+    display: block;
   }
 }
 

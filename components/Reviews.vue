@@ -32,9 +32,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/var.scss";
+
 h3 {
   margin-top: 50px;
   margin-bottom: 30px;
   font-weight: 700;
+  color: $title;
 }
 </style>
